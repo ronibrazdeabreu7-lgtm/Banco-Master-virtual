@@ -1,0 +1,21 @@
+.env
+__pycache__/
+*.pyc
+venv/
+*.log
+
+# Dados locais e backups
+banco.db
+*.db
+*.sqlite
+*.sqlite3
+*.db.backup*
+.env
+
+# Desenvolvimento
+agente.py
+app.py.backup*
+deploy/
+tests/
+__pycache__/
+.pytest_cache/

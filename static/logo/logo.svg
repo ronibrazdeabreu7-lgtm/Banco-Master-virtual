@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 160 160"
+     role="img"
+     aria-label="Banco Inter Virtual">
+
+    <rect width="160" height="160" rx="38" fill="#171f23"/>
+
+    <path
+        d="M48 80
+           C48 53 65 37 88 37
+           C105 37 118 45 126 57
+           L107 69
+           C102 61 96 57 88 57
+           C76 57 68 66 68 80
+           C68 94 76 103 88 103
+           C96 103 102 99 107 91
+           L126 103
+           C118 115 105 123 88 123
+           C65 123 48 107 48 80Z"
+        fill="#ff6b00"/>
+
+    <circle cx="89" cy="80" r="7" fill="#ffffff"/>
+</svg>

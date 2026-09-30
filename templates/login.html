@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Login — Banco Inter Virtual{% endblock %}
+
+{% block content %}
+<section class="login-page">
+
+    <div class="login-card">
+
+        <img class="login-logo"
+             src="{{ url_for('static', filename='logo/logo.svg') }}"
+             alt="Banco Inter Virtual">
+
+        <h1>Banco Inter Virtual</h1>
+        <p class="subtitle">Acesso ao ambiente bancário de laboratório</p>
+
+        <form method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <label for="username">Usuário</label>
+            <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="username"
+                placeholder="Digite seu usuário"
+                required
+            >
+
+            <label for="password">Senha</label>
+            <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Digite sua senha"
+                required
+            >
+
+            <button class="primary-button" type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+        <div class="lab-warning">
+            <strong>Ambiente fictício</strong>
+            <p>
+                Este sistema é exclusivamente para testes e demonstração.
+                Não utilize dados bancários reais.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

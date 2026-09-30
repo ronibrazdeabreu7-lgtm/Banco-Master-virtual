@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Início — Banco Inter Virtual{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <span class="eyebrow">BANCO INTER VIRTUAL</span>
+        <h1>Olá, {{ user["full_name"] or user["username"] }}</h1>
+        <p>Visão geral da sua conta</p>
+    </div>
+</div>
+
+<div class="balance-card">
+    <div>
+        <span>Saldo disponível</span>
+        <strong id="balance">
+            {{ user["balance_cents"]|brl }}
+        </strong>
+    </div>
+
+    <div class="account-info">
+        <span>Agência</span>
+        <b>{{ user["agency"] }}</b>
+
+        <span>Conta</span>
+        <b>{{ user["account_number"] }}</b>
+    </div>
+</div>
+
+<div class="cards-grid">
+
+    <a class="action-card" href="{{ url_for('pix') }}">
+        <div class="action-icon">P</div>
+        <h3>Pix</h3>
+        <p>Envie valores para outra conta do laboratório.</p>
+    </a>
+
+    <a class="action-card" href="{{ url_for('extrato') }}">
+        <div class="action-icon">≡</div>
+        <h3>Extrato</h3>
+        <p>Consulte as movimentações da sua conta.</p>
+    </a>
+
+</div>
+
+<section class="panel">
+
+    <div class="panel-header">
+        <h2>Últimas movimentações</h2>
+        <a href="{{ url_for('extrato') }}">Ver extrato completo</a>
+    </div>
+
+    {% if transactions %}
+
+    <div class="transaction-list">
+
+        {% for tx in transactions %}
+
+        <div class="transaction">
+
+            <div>
+                <strong>{{ tx["description"] }}</strong>
+                <small>{{ tx["created_at"] }}</small>
+            </div>
+
+            <span class="{{ 'positive' if tx['amount_cents'] >= 0 else 'negative' }}">
+                {{ tx["amount_cents"]|brl }}
+            </span>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty">
+        Nenhuma movimentação registrada.
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

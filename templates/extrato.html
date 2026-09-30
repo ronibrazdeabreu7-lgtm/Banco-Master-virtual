@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Extrato — Banco Inter Virtual{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <span class="eyebrow">MOVIMENTAÇÕES</span>
+        <h1>Extrato</h1>
+        <p>Últimas movimentações da conta</p>
+    </div>
+</div>
+
+<section class="panel">
+
+    {% if transactions %}
+
+    <div class="transaction-list">
+
+        {% for tx in transactions %}
+
+        <div class="transaction">
+
+            <div>
+                <strong>{{ tx["description"] }}</strong>
+
+                <small>
+                    {{ tx["transaction_type"] }} ·
+                    {{ tx["created_at"] }}
+                </small>
+
+                <small>
+                    ID: {{ tx["transaction_id"] }}
+                </small>
+            </div>
+
+            <span class="{{ 'positive' if tx['amount_cents'] >= 0 else 'negative' }}">
+                {{ tx["amount_cents"]|brl }}
+            </span>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty">
+        Nenhuma movimentação encontrada.
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,207 @@
+MISSÃO: CONSTRUIR BANCO INTER VIRTUAL
+
+Trabalhe autonomamente dentro de ~/banco-inter/.
+
+OBJETIVO:
+Construir uma aplicação web bancária fictícia, completa e funcional,
+chamada Banco Inter Virtual.
+
+REGRAS:
+- Somente dados fictícios.
+- Não utilizar dados bancários ou pessoais reais.
+- Não copiar identidade visual de bancos existentes.
+- Criar identidade visual própria.
+- Python + Flask + SQLite + HTML + CSS + JavaScript.
+- Interface responsiva.
+- Não usar nano.
+- Antes de instalar qualquer pacote, verificar command -v.
+- Não usar apt.
+- Não usar pkg update.
+- Não repetir comandos que falharam sem analisar o erro.
+- Verificar efetivamente cada etapa.
+- Não declarar conclusão sem testes.
+
+ESCALA:
+Criar exatamente:
+- 1 proprietário/teste
+- 500.000 clientes fictícios
+- 500.001 contas no total
+
+PATRIMÔNIO:
+- proprietário: R$0,00
+- clientes: exatamente R$1.000.000.000,00
+- patrimônio inicial: exatamente R$1.000.000.000,00
+
+DINHEIRO:
+Representar valores em centavos usando INTEGER.
+Nunca usar FLOAT para saldos.
+
+CLIENTES:
+- 500.000 nomes fictícios variados.
+- identificadores fiscais de laboratório que não sejam utilizados como
+  CPFs reais.
+- agências fictícias.
+- contas únicas.
+- logins únicos.
+- senhas fictícias armazenadas somente com hash.
+- nenhum dado pessoal real.
+
+PERFORMANCE:
+- geração em lotes;
+- executemany;
+- transações;
+- índices;
+- SQLite WAL quando apropriado;
+- paginação;
+- não carregar 500.000 clientes no navegador simultaneamente.
+
+BANCO:
+Criar tabelas adequadas para:
+clients
+accounts
+users
+transactions
+pix_transactions
+
+Utilizar foreign keys.
+
+AUTENTICAÇÃO:
+- login;
+- logout;
+- sessão;
+- proteção de rotas;
+- senha com hash;
+- login inválido recusado;
+- senha inválida recusada;
+- usuário inexistente recusado.
+
+INTERFACE:
+Criar:
+- tela de login;
+- dashboard;
+- saldo;
+- agência;
+- conta;
+- dados do cliente;
+- extrato;
+- histórico;
+- Pix;
+- logout.
+
+IDENTIDADE:
+Criar logo SVG ORIGINAL para Banco Inter Virtual.
+Criar favicon.
+A logo deve aparecer na tela de login e no dashboard.
+Não copiar logo, símbolo, cores, tipografia ou composição de banco real.
+Adicionar indicação de que é um ambiente fictício/laboratório.
+
+PIX:
+Permitir transferência interna entre contas fictícias.
+
+Validar:
+- conta existente;
+- valor > 0;
+- saldo suficiente;
+- conta destino diferente;
+- valor com centavos.
+
+A operação deve ocorrer atomicamente:
+- debitar remetente;
+- creditar destinatário;
+- registrar transação;
+- registrar histórico;
+- gerar identificador único.
+
+Em caso de erro, não alterar saldo.
+
+TESTES:
+Criar testes automatizados para:
+- banco;
+- 500.001 contas;
+- 500.000 clientes;
+- proprietário;
+- patrimônio;
+- soma dos saldos;
+- login;
+- logout;
+- proteção;
+- saldo;
+- Pix;
+- Pix inválido;
+- saldo insuficiente;
+- valor zero;
+- valor negativo;
+- conta inexistente;
+- extrato;
+- histórico;
+- consistência;
+- patrimônio após Pix.
+
+VALIDAÇÃO OBRIGATÓRIA:
+Confirmar matematicamente:
+COUNT(accounts) = 500001
+COUNT(clients) = 500000
+COUNT(owner) = 1
+SUM(client balances) = 100000000000 centavos
+owner balance = 0
+patrimônio = 100000000000 centavos
+
+TESTE REAL:
+Escolher duas contas fictícias.
+Guardar saldos.
+Executar Pix.
+Confirmar:
+remetente depois = antes - valor
+destinatário depois = antes + valor
+patrimônio permanece igual.
+Confirmar registro nos dois históricos.
+
+SERVIDOR:
+Executar Flask sem bloquear o agente.
+Verificar porta.
+Fazer requisição HTTP local.
+Confirmar HTTP 200.
+Confirmar HTML.
+Confirmar CSS.
+Confirmar logo.
+Confirmar JavaScript quando utilizado.
+
+SEGURANÇA:
+- SQL parametrizado;
+- validação de entrada;
+- hash de senhas;
+- sessões;
+- controle de acesso;
+- tratamento de erros;
+- não expor segredos;
+- não utilizar dados reais.
+
+PUBLICAÇÃO:
+Depois que o sistema local estiver comprovadamente funcionando,
+pesquisar uma alternativa gratuita atualmente disponível para Flask
+ou arquitetura compatível.
+
+Não inventar URL.
+Não inventar domínio.
+Não declarar publicação sem testar a URL.
+
+RELATÓRIO FINAL:
+Informar:
+caminho;
+tecnologia;
+banco;
+quantidade de contas;
+quantidade de clientes;
+proprietário;
+patrimônio;
+credencial fictícia do proprietário;
+URL local verificada;
+URL pública somente se realmente funcionar;
+HTTPS somente se realmente verificado;
+testes executados;
+erros corrigidos;
+arquivos principais.
+
+IMPORTANTE:
+Execute, teste, corrija e verifique.
+Não apenas explique.
